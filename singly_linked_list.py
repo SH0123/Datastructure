@@ -90,7 +90,7 @@ class SinglyLinkedList(object):
             return -1
 
     # findPreviousNode, findNode 함수 사용
-    def deleteData(self, index):
+    def deleteIndex(self, index):
         if index == 0:
             curnNode, _ = self.findNode(index)
             self.first = curnNode.next
@@ -124,9 +124,9 @@ s.insertIndex(2, Node(3))
 s.showList()
 s.insertData(24, Node(29))
 s.showList()
-s.deleteData(5)
+s.deleteIndex(5)
 s.showList()
-s.deleteData(0)
+s.deleteIndex(0)
 s.showList()
 s.insertIndex(-1, Node(130))
 s.showList()
