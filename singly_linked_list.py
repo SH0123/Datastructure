@@ -65,17 +65,21 @@ class SinglyLinkedList(object):
 
         return None
 
-    # findNode 함수 사용
+    # findNode 함수 사용, 해당 index의 node 뒤에 insert
     def insertIndex(self, index, node):
-        # 범위 초과하는 index 기입한느 경우
-        if self.findNode(index) != None:
+        # 맨 앞에 node 추가하는 경우
+        if index == -1:
+            node.next = self.first
+            self.first = node
+        # 범위 초과하는 index 기입하는 경우
+        elif self.findNode(index) != None:
             curnNode, _ = self.findNode(index)
             node.next = curnNode.next
             curnNode.next = node
         else:
             return -1
 
-    # findIndex 함수 사용
+    # findIndex 함수 사용, 해당 data가 있는 node 뒤에 insert
     def insertData(self, data, node):
         # data를 포함하는 노드가 list에 존재하는 경우
         if self.findIndex(data) != None:
@@ -114,9 +118,17 @@ s = SinglyLinkedList()
 s.append(Node(1))
 s.append(Node(24))
 s.append(Node(32))
+s.append(Node(99))
 s.showList()
 s.insertIndex(2, Node(3))
-s.insertData(3, Node(29))
+s.showList()
+s.insertData(24, Node(29))
 s.showList()
 s.deleteData(5)
+s.showList()
+s.deleteData(0)
+s.showList()
+s.insertIndex(-1, Node(130))
+s.showList()
+s.deleteList()
 s.showList()
