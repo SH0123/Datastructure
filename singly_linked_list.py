@@ -32,6 +32,7 @@ class SinglyLinkedList(object):
     def findNode(self, index):
         idx = 0
         curn = self.first
+        prev = None
         while idx < index:
             if curn:
                 prev = curn
@@ -66,15 +67,34 @@ class SinglyLinkedList(object):
 
     # findNode 함수 사용
     def insertIndex(self, index, node):
-        pass
+        # 범위 초과하는 index 기입한느 경우
+        if self.findNode(index) != None:
+            curnNode, _ = self.findNode(index)
+            node.next = curnNode.next
+            curnNode.next = node
+        else:
+            return -1
 
     # findIndex 함수 사용
     def insertData(self, data, node):
-        pass
+        # data를 포함하는 노드가 list에 존재하는 경우
+        if self.findIndex(data) != None:
+            idx = self.findIndex(data)
+            self.insertIndex(idx, node)
+
+        else:
+            return -1
 
     # findPreviousNode, findNode 함수 사용
     def deleteData(self, index):
-        pass
+        if index == 0:
+            curnNode, _ = self.findNode(index)
+            self.first = curnNode.next
+        elif self.findNode(index) != None:
+            curnNode, prevNode = self.findNode(index)
+            prevNode.next = curnNode.next
+        else:
+            return -1
 
     def showList(self):
         curn = self.first
@@ -95,8 +115,8 @@ s.append(Node(1))
 s.append(Node(24))
 s.append(Node(32))
 s.showList()
-print(s.findNode(4)[0])
-print(s.findPreviousNode(2).data)
-print(s.findIndex(34)[1])
-s.deleteList()
+s.insertIndex(2, Node(3))
+s.insertData(3, Node(29))
+s.showList()
+s.deleteData(5)
 s.showList()
