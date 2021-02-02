@@ -30,16 +30,16 @@ class Array:
 
 
 arr = Array(10)
-arr.show()
+arr.show()  # >>>[-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
 arr.store(0, 2)
 arr.store(1, 4)
-arr.show()
-arr.retrive(3)
-arr.retrive(1)
-arr.store(1, 43)
+arr.show()  # >>>[2, 4, -1, -1, -1, -1, -1, -1, -1, -1]
+arr.retrive(3)  # >>>not exist
+arr.retrive(1)  # >>> 4
+arr.store(1, 43)  # >>>already exist. try another index
 arr.store(-5, 43)
-arr.retrive(32)
-arr.store(6, 23)
+arr.retrive(32)  # >>>out of range
+arr.store(6, 23)  # >>>[2, 4, -1, -1, -1, 43, 23, -1, -1, -1]
 arr.show()
 
 """
