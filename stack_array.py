@@ -13,7 +13,7 @@ class Stack(object):
     def push(self, value):
         # stack이 array의 기존 사이즈만큼 꽉 찼을 경우 array 크기 2배로 조정
         if self.isFull():
-            tmp = [0 for _ in range(self.capacity)]
+            tmp = [0 for _ in range(self.capacitydjzp)]
             self.array += tmp
             self.capacity *= 2
 
